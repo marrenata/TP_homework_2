@@ -1,9 +1,10 @@
 package org.example;
 
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-class Function {
+public class Function {
 
     public static void main(String[] args) {
         File file = new File("numbers.txt");
@@ -32,6 +33,9 @@ class Function {
     }
 
     public static int _min(int[] numbers) {
+        if (numbers == null || numbers.length == 0) {
+            throw new IllegalArgumentException("Array must not be empty");
+        }
         int min = numbers[0];
         for (int i = 1; i < numbers.length; i++) {
             if (numbers[i] < min) {
@@ -42,6 +46,9 @@ class Function {
     }
 
     public static int _max(int[] numbers) {
+        if (numbers == null || numbers.length == 0) {
+            throw new IllegalArgumentException("Array must not be empty");
+        }
         int max = numbers[0];
         for (int i = 1; i < numbers.length; i++) {
             if (numbers[i] > max) {
@@ -52,6 +59,9 @@ class Function {
     }
 
     public static int _sum(int[] numbers) {
+        if (numbers == null || numbers.length == 0) {
+            return 0;
+        }
         int sum = 0;
         for (int num : numbers) {
             sum += num;
@@ -60,6 +70,9 @@ class Function {
     }
 
     public static long _mult(int[] numbers) {
+        if (numbers == null || numbers.length == 0) {
+            return 1;
+        }
         long mult = 1;
         for (int num : numbers) {
             mult *= num;
